@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    GameObject[] blocks = new GameObject[36];
+    private GameObject[] blocks = new GameObject[36];
+    public GameObject gameOverUI;
+    public GameObject gameClearUI;
+
+    private bool isClear = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +31,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // 終了判定
-        if(DestroyAllBlocks())
+        if(isClear != true)
         {
-            // クリア
-            Debug.Log("クリア");
+            if(DestroyAllBlocks())
+            {
+                // クリア
+                gameClearUI.SetActive(true);
+                isClear = true;
+            }
         }
     }
 
@@ -51,10 +60,17 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    // gameover
     public void GameOver()
     {
-        Debug.Log("ゲームオーバー");
+        gameOverUI.SetActive(true);
     }
 
     // ボタン押したら早送り
+
+    // リセット
+    public void GameRestart()
+    {
+        SceneManager.LoadScene("Game");     // シーン名    
+    }
 }
