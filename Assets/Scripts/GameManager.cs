@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakOutManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-
     GameObject[] blocks = new GameObject[36];
 
     // Start is called before the first frame update

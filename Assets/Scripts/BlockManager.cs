@@ -16,7 +16,7 @@ public class BlockManager : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision collision) //‰½‚É‚ ‚½‚Á‚½‚©w’è
+    private void OnCollisionEnter(Collision collision) // è¡çªã—ãŸã‚‰æ¶ˆã™
     {
         Destroy(this.gameObject);
     }
